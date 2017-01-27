@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
                 libx11-xcb-dev \
                 libxss-dev \
                 libxtst-dev \
+                lsb-release \
                 mesa-common-dev \
                 ninja-build \
                 python \
@@ -37,6 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /
 COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["master"]
+CMD ["static", "master"]
 
