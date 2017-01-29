@@ -24,7 +24,7 @@ do
       cd /ungoogled-chromium
 
       # cleanup files from previous build, except downloads
-      git ls-files --others --exclude="build/download/*" | xargs --no-run-if-empty rm -f
+      git ls-files -z --others --exclude="build/downloads/" | xargs -0 --no-run-if-empty rm -f
       find . -type d -empty -delete
       git checkout -- .
 
